@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "stations": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "reports": {
+      ".read": true,
+      "$stationId": {
+        ".write": "auth != null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth.uid === $uid"
+      }
+    }
+  }
+}
